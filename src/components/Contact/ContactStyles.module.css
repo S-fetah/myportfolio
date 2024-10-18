@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+textarea,
+input:not([type="sumbit"]) {
+  height: 50px;
+  padding: 15px;
+  width: 250px;
+}
+textarea {
+  height: 250px;
+  resize: none;
+  padding-top: 20px;
+}
+
+input,
+textarea {
+  border-radius: 20px;
+  border: #888 1px solid;
+  box-sizing: border-box;
+  justify-self: center;
+  background-color: var(--background-color);
+  color: var(--form-text-color);
+}
+
+::placeholder {
+  color: var(--form-text-color);
+}
+
+input[type="submit"] {
+  background-color: var(--mybtn-color);
+  color: var(--btn-text-color);
+  border: none;
+  margin: auto;
+  border-radius: 20px;
+  width: 126px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 2px 10px 5px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  transform: scale(1.05);
+  border: 1px solid var(--mybtn-color);
+}
+
+@media (width >= 800px) {
+  textarea,
+  input:not([type="submit"]) {
+    width: 600px;
+    font-size: 20px;
+  }
+  form {
+    gap: 50px;
+  }
+}
+
+@media (width >= 1400x) {
+  textarea,
+  input:not([type="submit"]) {
+    width: 800px;
+    font-size: 20px;
+  }
+}
