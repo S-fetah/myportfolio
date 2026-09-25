@@ -1,39 +1,46 @@
 import PropTypes from "prop-types";
-function ProjectCard(props) {
-  const { bookPrinting, library, watch, Driver } = props.pics;
+import styles from "./ProjectCard.module.css";
+
+/* Single reusable project card. Image cards show a preview; imageless
+   entries (CV-only projects) render a clean text-only variant. No fake links. */
+function ProjectCard({ title, description, image, alt, tags }) {
   return (
-    <>
-      <a href="_">
-        <img src={bookPrinting} alt="clock Pic" />
-        <h3> Printing Workshop </h3>
-        <p> get your book printed now!</p>
-      </a>
-      <a href="_">
-        <img src={watch} alt="clock Pic" />
-        <h3>Timeless Pick </h3>
-        <p>watches guide</p>
-      </a>
-      <a href="_">
-        <img src={library} alt="online library" />
-        <h3>Online library</h3>
-        <p>free translated books!!</p>
-      </a>
-      <a href="_">
-        <img src={Driver} alt="online library" />
-        <h3>Driver APP</h3>
-        <p>React-native univ App</p>
-      </a>
-    </>
+    <article className={styles.card}>
+      {image ? (
+        <img
+          src={image}
+          alt={alt}
+          loading="lazy"
+          width={800}
+          height={450}
+          className={styles.image}
+        />
+      ) : (
+        <div className={styles.noImage} aria-hidden="true">
+          <span className={styles.noImageMark}>{"</>"}</span>
+        </div>
+      )}
+      <div className={styles.body}>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.description}>{description}</p>
+        <ul className={styles.tags} aria-label={`Technologies for ${title}`}>
+          {tags.map((tag) => (
+            <li key={tag} className={styles.tag}>
+              {tag}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
   );
 }
 
-export default ProjectCard;
-
 ProjectCard.propTypes = {
-  pics: PropTypes.shape({
-    bookPrinting: PropTypes.string.isRequired,
-    library: PropTypes.string.isRequired,
-    watch: PropTypes.string.isRequired,
-    Driver: PropTypes.string.isRequired,
-  }).isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  alt: PropTypes.string,
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
+
+export default ProjectCard;

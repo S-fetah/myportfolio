@@ -1,43 +1,43 @@
 import styles from "./skillsStyles.module.css";
-import dark from "../../assets/checkmark-dark.svg";
-import light from "../../assets/checkmark-light.svg";
-import { useThemeContext } from "../common/ThemeContext";
-import Skill from "./skill";
-const skillsArr = [
-  "HTML",
-  "CSS",
-  "ReactJs",
-  "Nodejs",
-  "MongoDb",
-  "SQL",
-  "Redux",
-  "Tailwind CSS",
-  "Bootstrap",
-  "Express",
-];
+import { LANGUAGES, SKILL_GROUPS } from "../../data/content";
+import Reveal from "../common/Reveal";
+
 function Skills() {
-  const { theme } = useThemeContext();
-  const checkMark = theme === "light" ? light : dark;
   return (
-    <section id="skills" className={styles.container}>
-      <h1>skills</h1>
-      <div className={styles.skillList}>
-        {/* {skillsArr.map((skill) => {
-          return <Skill checkMark={checkMark} skill={skill} key={skill} />;
-        })} */}
-        <Skill checkMark={checkMark} skill={skillsArr[0]} />
-        <Skill checkMark={checkMark} skill={skillsArr[1]} />
-        <Skill checkMark={checkMark} skill={skillsArr[2]} />
-        <Skill checkMark={checkMark} skill={skillsArr[3]} />
-        <Skill checkMark={checkMark} skill={skillsArr[4]} />
-      </div>
-      <hr />
-      <div className={styles.skillList}>
-        <Skill checkMark={checkMark} skill={skillsArr[5]} />
-        <Skill checkMark={checkMark} skill={skillsArr[6]} />
-        <Skill checkMark={checkMark} skill={skillsArr[7]} />
-        <Skill checkMark={checkMark} skill={skillsArr[8]} />
-        <Skill checkMark={checkMark} skill={skillsArr[9]} />
+    <section id="skills" className="section" aria-labelledby="skills-heading">
+      <div className="sectionInner">
+        <Reveal>
+          <p className="sectionKicker">Skills</p>
+          <h2 id="skills-heading" className="sectionTitle">
+            Grouped by where they ship
+          </h2>
+          <p className="sectionLead">
+            The working stack behind the experience above — frontend to
+            infrastructure to the integrations that tie it together.
+          </p>
+        </Reveal>
+        <div className={styles.grid}>
+          {SKILL_GROUPS.map((group, index) => (
+            <Reveal key={group.title} delay={Math.min(index, 3) * 80}>
+              <article className={styles.group}>
+                <h3 className={styles.groupTitle}>{group.title}</h3>
+                <ul className={styles.tags}>
+                  {group.skills.map((skill) => (
+                    <li key={skill} className={styles.tag}>
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal>
+          <p className={styles.languages}>
+            <span className={styles.languagesLabel}>Languages</span>
+            {LANGUAGES.join(" · ")} — professional proficiency or above.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

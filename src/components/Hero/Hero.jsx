@@ -1,63 +1,94 @@
 import styles from "./HeroStyles.module.css";
-
-import sun from "../../assets/sun.svg";
-import moon from "../../assets/moon.svg";
 import linkedinLight from "../../assets/linkedin-light.svg";
 import linkedinDark from "../../assets/linkedin-dark.svg";
 import githubLight from "../../assets/github-light.svg";
 import githubDark from "../../assets/github-dark.svg";
 import twitterLight from "../../assets/twitter-light.svg";
 import twitterDark from "../../assets/twitter-dark.svg";
-import CV from "../../assets/M2-CV.pdf";
+import CV from "../../assets/Fettah_Safi_CV_ATS_v3.pdf";
 import me from "../../assets/meLastest.jpg";
+import { PROFILE, SOCIALS } from "../../data/content";
 import { useThemeContext } from "../common/ThemeContext";
+
 function Hero() {
-  const { theme, toggleTheme } = useThemeContext();
-  const themeicon = theme === "light" ? sun : moon;
-  const twittericon = theme === "light" ? twitterLight : twitterDark;
-  const linkedinicon = theme === "light" ? linkedinLight : linkedinDark;
-  const githubicon = theme === "light" ? githubLight : githubDark;
+  const { theme } = useThemeContext();
+  const isLight = theme === "light";
+
   return (
-    <section id="hero" className={styles.container}>
-      <div className={styles.colorModeContainer}>
-        <img
-          className={styles.hero}
-          src={me}
-          alt="profile Pic of abdelfetah safiddine "
-        />
-        <img
-          className={styles.colorMode}
-          src={themeicon}
-          alt="color mode icon"
-          onClick={toggleTheme}
-        />
-      </div>
-      <div className={styles.info}>
-        <h1>
-          Abdelfetah <br />
-          Safiddine
-        </h1>
-        <h2>Full Stack Developer</h2>
-        <span>
-          <a href="https://www.linkedin.com/in/fettah-safi-46582b263/">
-            <img src={linkedinicon} alt="Linkedin" />
-          </a>
-
-          <a href="https://x.com/abdelfetah78">
-            <img src={twittericon} alt="Twitter" />
-          </a>
-
-          <a href="https://github.com/S-fetah">
-            <img src={githubicon} alt="Github" />
-          </a>
-        </span>
-        <p className={styles.discription}>
-          developing modern react web apps for businesses
-        </p>
-
-        <a href={CV} download>
-          <button className="hover">Resume</button>
-        </a>
+    <section id="home" className={styles.hero} aria-labelledby="hero-heading">
+      <div className={styles.inner}>
+        <div className={styles.copy}>
+          <p className={styles.kicker}>{PROFILE.location}</p>
+          <h1 id="hero-heading">
+            {PROFILE.firstName} <br />
+            {PROFILE.lastName}
+          </h1>
+          <p className={styles.role}>{PROFILE.title}</p>
+          <p className={styles.description}>{PROFILE.valueProp}</p>
+          <div className={styles.ctas}>
+            <a
+              href={CV}
+              download="Fettah_Safi_CV.pdf"
+              className={styles.primaryButton}
+            >
+              Download CV
+            </a>
+            <a href="#contact" className={styles.secondaryButton}>
+              Get in touch
+            </a>
+          </div>
+          <ul className={styles.socials} aria-label="Social links">
+            <li>
+              <a
+                href={SOCIALS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn profile"
+              >
+                <img
+                  src={isLight ? linkedinLight : linkedinDark}
+                  alt=""
+                  aria-hidden="true"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href={SOCIALS.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter) profile"
+              >
+                <img
+                  src={isLight ? twitterLight : twitterDark}
+                  alt=""
+                  aria-hidden="true"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href={SOCIALS.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub profile"
+              >
+                <img
+                  src={isLight ? githubLight : githubDark}
+                  alt=""
+                  aria-hidden="true"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className={styles.portrait}>
+          <img
+            className={styles.photo}
+            src={me}
+            alt="Portrait of Safiddine Abdelfetah"
+          />
+        </div>
       </div>
     </section>
   );

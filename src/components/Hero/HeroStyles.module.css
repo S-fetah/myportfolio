@@ -1,104 +1,143 @@
-.container {
+.hero {
+  padding: var(--space-16) var(--space-4) var(--space-12);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  text-align: center;
-  height: 100dvh;
-  min-height: 500px;
-
-  .hero {
-    max-width: 200px;
-    border-radius: 50%;
-  }
-
-  span {
-    display: flex;
-    gap: 25px;
-    justify-content: center;
-
-    a {
-      margin: 0;
-
-      img {
-        width: 30px;
-      }
-    }
-  }
-
-  a {
-    width: fit-content;
-    align-self: center;
-  }
-
-  button {
-    background-color: var(--mybtn-color);
-    color: var(--btn-text-color);
-    border: none;
-    border-radius: 20px;
-    width: 126px;
-    height: 50px;
-    font-size: 20px;
-    font-weight: bold;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
-  }
-
-  button:hover {
-    transform: scale(1.05);
-  }
-
-  button:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
-  }
+  gap: var(--space-8);
 }
 
-.colorModeContainer {
-  position: relative;
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: flex-start;
 }
 
-.colorMode {
-  position: absolute;
-  right: 0;
-  width: 25px;
-  border: 1px solid var(--mybtn-color);
-  border-radius: 50%;
-  padding: 5px;
+.kicker {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0;
 }
 
-.colorMode:hover {
-  cursor: pointer;
+.role {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  color: var(--text-muted);
+  margin: 0;
 }
 
 .description {
-  max-width: 24ch;
+  max-width: 52ch;
+  color: var(--text-muted);
+  margin: 0;
 }
 
-.info {
+.ctas {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
 }
 
-@media (width >= 800px) {
-  .container {
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-evenly;
+.primaryButton {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--accent-contrast);
+  background-color: var(--accent);
+  border-radius: var(--radius-pill);
+  padding: var(--space-3) var(--space-6);
+  box-shadow: var(--shadow-md);
+  transition: background-color var(--transition-fast), transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
 
-    .hero {
-      max-width: 350px;
-      width: 350px;
-    }
+.primaryButton:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.primaryButton:active {
+  transform: translateY(0);
+}
+
+.secondaryButton {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-pill);
+  padding: var(--space-3) var(--space-6);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.secondaryButton:hover {
+  background-color: var(--accent-soft);
+  transform: translateY(-2px);
+}
+
+.socials {
+  display: flex;
+  gap: var(--space-4);
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+}
+
+.socials a {
+  display: inline-flex;
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition-fast);
+}
+
+.socials a:hover {
+  transform: translateY(-2px);
+}
+
+.socials img {
+  width: 28px;
+  height: 28px;
+}
+
+.portrait {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.photo {
+  width: clamp(180px, 40vw, 320px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 860px) {
+  .hero {
+    padding: var(--space-20) var(--space-6);
   }
-}
 
-@media (width >= 1400px) {
-  .container {
-    .hero {
-      max-width: 400px;
-      width: 400px;
-    }
+  .inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .copy {
+    max-width: 60ch;
+  }
+
+  .portrait {
+    justify-content: flex-end;
   }
 }

@@ -1,29 +1,46 @@
+import { useEffect, useRef } from "react";
 import styles from "./PopUpstyle.module.css";
 import Check from "../../assets/Check.svg";
 import PropTypes from "prop-types";
+
 function PopUp({ handleConfirm }) {
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    buttonRef.current?.focus();
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") handleConfirm();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [handleConfirm]);
+
   return (
-    <aside className={styles.modalContainer}>
-      <div className={styles.modal}>
-        <img src={Check} alt="Done" className={styles.Done} />
-        <h3>Thanks For Contacting </h3>
-
-        <h4>I`ll Be In Touch Soon.</h4>
-
+    <div className={styles.overlay}>
+      <div
+        className={styles.modal}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="popup-heading"
+      >
+        <img src={Check} alt="" aria-hidden="true" className={styles.check} />
+        <h3 id="popup-heading">Thanks for reaching out</h3>
+        <p>I&apos;ll be in touch soon.</p>
         <button
+          ref={buttonRef}
           type="button"
-          className={styles.modalConfirmBtn}
+          className={styles.confirmButton}
           onClick={handleConfirm}
         >
-          confirm
+          Confirm
         </button>
       </div>
-    </aside>
+    </div>
   );
 }
 
 PopUp.propTypes = {
-  handleConfirm: PropTypes.node.isRequired,
+  handleConfirm: PropTypes.func.isRequired,
 };
 
 export default PopUp;

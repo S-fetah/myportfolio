@@ -3,112 +3,114 @@ import { sendEmail } from "./email";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import PopUp from "../Popup/PopUp";
+import styles from "./ContactStyles.module.css";
 
 function Form() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [open, setOpen] = useState(false);
-  const [done, setDone] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
 
   const handleConfirm = () => {
-    setDone(false);
-  };
-  const handleChange = (e) => {
-    if (e.target.name === "name") {
-      // console.log(e.target.value);
-      return setName(e.target.value);
-    }
-    if (e.target.name === "email") {
-      return setEmail(e.target.value);
-    }
-    if (e.target.name === "message") {
-      return setMessage(e.target.value);
-    }
+    setSent(false);
   };
 
   const handleSubmit = (e) => {
-    setOpen(true);
     e.preventDefault();
+    setSending(true);
+    setError("");
 
     const templateParams = {
       from_name: name,
       from_email: email,
-      message: message,
+      message,
     };
 
     sendEmail(templateParams).then(
-      (response) => {
-        setOpen(false);
-        setDone(true);
-        console.log("SUCCESS!", response.status, response.text);
+      () => {
+        setSending(false);
+        setSent(true);
+        setName("");
+        setEmail("");
+        setMessage("");
       },
-      (err) => {
-        setOpen(false);
-        throw new Error(err);
+      () => {
+        setSending(false);
+        setError(
+          "Something went wrong sending your message. Please try again or email me directly at fettahsafi.6@gmail.com."
+        );
       }
     );
-
-    setName("");
-    setEmail("");
-    setMessage("");
   };
+
   return (
     <>
-      <div>
-        {/* Loader Backdrop */}
-        <Backdrop
-          sx={(theme) => ({ color: "#fff", zIndex: theme.zIndex.drawer + 1 })}
-          open={open}
-        >
-          <CircularProgress color="inherit" />
-        </Backdrop>
-      </div>
-      <form action="" onSubmit={handleSubmit}>
-        <div className="formGroup">
-          <label htmlFor="name" hidden>
-            Name
+      <Backdrop
+        sx={(theme) => ({ color: "#fff", zIndex: theme.zIndex.drawer + 1 })}
+        open={sending}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+      <form className={styles.form} onSubmit={handleSubmit} noValidate={false}>
+        <div className={styles.field}>
+          <label htmlFor="contact-name" className="visuallyHidden">
+            Your name
           </label>
           <input
             type="text"
             name="name"
-            id="name"
+            id="contact-name"
             placeholder="Name"
+            autoComplete="name"
             required
             value={name}
-            onChange={handleChange}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div className="formGroup">
-          <label htmlFor="email" hidden>
-            Name
+        <div className={styles.field}>
+          <label htmlFor="contact-email" className="visuallyHidden">
+            Your email
           </label>
           <input
             type="email"
             name="email"
-            id="email"
+            id="contact-email"
             placeholder="Email"
+            autoComplete="email"
             required
             value={email}
-            onChange={handleChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div className="formGroup">
-          <label htmlFor="message" hidden>
-            Name
+        <div className={styles.field}>
+          <label htmlFor="contact-message" className="visuallyHidden">
+            Your message
           </label>
           <textarea
             name="message"
-            id="message"
-            placeholder="message"
+            id="contact-message"
+            placeholder="Message"
+            rows={7}
             required
             value={message}
-            onChange={handleChange}
-          ></textarea>
+            onChange={(e) => setMessage(e.target.value)}
+          />
         </div>
-        <input type="submit" value="Submit" className="hover btn" />
+        {error && (
+          <p className={styles.error} role="alert">
+            {error}
+          </p>
+        )}
+        <input
+          type="submit"
+          value={sending ? "Sending…" : "Send message"}
+          disabled={sending}
+          className={styles.submit}
+        />
       </form>
-      {done && <PopUp handleConfirm={handleConfirm} />}
+      {sent && <PopUp handleConfirm={handleConfirm} />}
     </>
   );
 }
