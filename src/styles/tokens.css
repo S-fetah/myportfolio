@@ -1,6 +1,6 @@
 /* Design tokens — single source of truth for the portfolio.
    Light palette is the default on :root; dark overrides under body[data-theme="dark"].
-   Personality: understated technical — near-black slate + one crisp teal accent. */
+   Personality: modern dev-tool — deep obsidian onyx + electric indigo accent. */
 
 :root {
   /* Typography */
@@ -49,39 +49,39 @@
   --transition-base: 250ms ease;
 
   /* Light theme */
-  --bg: #f7f8fa;
+  --bg: #f8f9fa;
   --surface: #ffffff;
-  --surface-2: #eef1f5;
-  --text: #16202a;
-  --text-muted: #546575;
-  --border: #dbe2ea;
-  --accent: #0b6e5f;
-  --accent-hover: #095c50;
+  --surface-2: #f0f2f5;
+  --text: #111418;
+  --text-muted: #5e6878;
+  --border: #dce1e8;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
   --accent-contrast: #ffffff;
-  --accent-soft: rgba(11, 110, 95, 0.1);
-  --nav-bg: rgba(247, 248, 250, 0.85);
-  --overlay: rgba(15, 20, 25, 0.6);
+  --accent-soft: rgba(79, 70, 229, 0.08);
+  --nav-bg: rgba(248, 249, 250, 0.85);
+  --overlay: rgba(17, 20, 24, 0.6);
 
-  --shadow-sm: 0 1px 2px rgba(22, 32, 42, 0.08);
-  --shadow-md: 0 4px 16px rgba(22, 32, 42, 0.1);
-  --shadow-lg: 0 12px 32px rgba(22, 32, 42, 0.14);
+  --shadow-sm: 0 1px 2px rgba(17, 20, 24, 0.06);
+  --shadow-md: 0 4px 16px rgba(17, 20, 24, 0.08);
+  --shadow-lg: 0 12px 32px rgba(17, 20, 24, 0.12);
 }
 
 body[data-theme="dark"] {
-  --bg: #0f1419;
-  --surface: #171e26;
-  --surface-2: #1f2833;
-  --text: #e8edf2;
-  --text-muted: #9aabbb;
-  --border: #2a3542;
-  --accent: #2dd4bf;
-  --accent-hover: #5eead4;
-  --accent-contrast: #06231e;
-  --accent-soft: rgba(45, 212, 191, 0.12);
-  --nav-bg: rgba(15, 20, 25, 0.85);
-  --overlay: rgba(0, 0, 0, 0.7);
+  --bg: #090a0f;
+  --surface: #12141c;
+  --surface-2: #191c26;
+  --text: #f1f3f9;
+  --text-muted: #8b92a5;
+  --border: #202433;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --accent-contrast: #ffffff;
+  --accent-soft: rgba(99, 102, 241, 0.14);
+  --nav-bg: rgba(9, 10, 15, 0.85);
+  --overlay: rgba(0, 0, 0, 0.75);
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.65);
 }

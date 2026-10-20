@@ -21,6 +21,7 @@ function Skills() {
             <Reveal key={group.title} delay={Math.min(index, 3) * 80}>
               <article className={styles.group}>
                 <h3 className={styles.groupTitle}>{group.title}</h3>
+                {group.note && <p className={styles.groupNote}>{group.note}</p>}
                 <ul className={styles.tags}>
                   {group.skills.map((skill) => (
                     <li key={skill} className={styles.tag}>

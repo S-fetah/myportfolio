@@ -5,8 +5,7 @@ import githubLight from "../../assets/github-light.svg";
 import githubDark from "../../assets/github-dark.svg";
 import twitterLight from "../../assets/twitter-light.svg";
 import twitterDark from "../../assets/twitter-dark.svg";
-import CV from "../../assets/Fettah_Safi_CV_ATS_v3.pdf";
-import me from "../../assets/meLastest.jpg";
+import me from "../../assets/profile.jpg";
 import { PROFILE, SOCIALS } from "../../data/content";
 import { useThemeContext } from "../common/ThemeContext";
 
@@ -26,12 +25,8 @@ function Hero() {
           <p className={styles.role}>{PROFILE.title}</p>
           <p className={styles.description}>{PROFILE.valueProp}</p>
           <div className={styles.ctas}>
-            <a
-              href={CV}
-              download="Fettah_Safi_CV.pdf"
-              className={styles.primaryButton}
-            >
-              Download CV
+            <a href="#projects" className={styles.primaryButton}>
+              View featured work
             </a>
             <a href="#contact" className={styles.secondaryButton}>
               Get in touch

@@ -1,0 +1,73 @@
+/* Shared styles for hand-drawn technical diagrams (inline SVG, theme-aware). */
+
+.box {
+  fill: var(--surface);
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.boxAccent {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+  stroke-width: 1;
+}
+
+.boxMuted {
+  fill: var(--surface-2);
+  stroke: var(--border);
+  stroke-width: 1;
+  stroke-dasharray: 6 4;
+}
+
+.boxTitle {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--text);
+}
+
+.boxSub {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  fill: var(--text-muted);
+}
+
+.groupLabel {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  fill: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.arrow {
+  stroke: var(--text-muted);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.arrowHead {
+  fill: var(--text-muted);
+}
+
+.arrowLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  fill: var(--text-muted);
+}
+
+.caption {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  fill: var(--text-muted);
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  min-width: 620px; /* keep labels legible; container scrolls horizontally on small screens */
+  height: auto;
+  aspect-ratio: 780 / 460;
+}
+

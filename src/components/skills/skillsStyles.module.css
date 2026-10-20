@@ -15,6 +15,13 @@
 
 .groupTitle {
   font-size: var(--text-lg);
+  margin: 0 0 var(--space-2);
+}
+
+.groupNote {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
   margin: 0 0 var(--space-4);
 }
 
