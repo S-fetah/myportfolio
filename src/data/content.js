@@ -47,7 +47,7 @@ export const SKILL_GROUPS = [
   },
   {
     title: "Databases & Data Modeling",
-    note: "Fennec: ~50-model PostgreSQL schema · Supabase & Firestore in other projects",
+    note: "Relational modeling in production · Supabase & Firestore across projects",
     skills: [
       "PostgreSQL",
       "Prisma ORM",
@@ -90,7 +90,7 @@ export const SKILL_GROUPS = [
   },
   {
     title: "Deployment & Operations",
-    note: "How the Fennec backend actually runs",
+    note: "Production deployment & system operations",
     skills: [
       "Linux / Ubuntu VPS",
       "Docker & Docker Compose",
@@ -128,12 +128,12 @@ export const EXPERIENCE = [
     period: "Oct 2025 – Present",
     bullets: [
       "Lead the design, build, and operation of the production backend for a multi-vertical travel platform — flights, hotels, transfers, packages, e-visas, eSIMs, insurance, and ferries — serving +10k registered users across web and mobile clients.",
-      "Architected a layered Express.js backend with unified booking and payment flows that normalize multiple third-party travel providers behind one API; ~50-model PostgreSQL schema managed with Prisma.",
-      "Integrated SATIM (CIB / Edahabia) payments and built pricing, commission, reconciliation, and wallet workflows.",
-      "Built real-time customer support on Socket.IO with Redis Pub/Sub, presence tracking, and PM2 clustering.",
-      "Implemented Bull/Redis background jobs with retries, delayed processing, and crash/deployment recovery for transient operations.",
-      "Integrated an AI-powered vision API for structured passport data extraction feeding e-visa flows; server-side price validation throughout.",
-      "Run production security and operations: JWT/OAuth, HMAC request signing, AES-256-GCM encrypted handoffs, strict CORS, Helmet, rate limiting — deployed via Docker, PM2, Nginx, and self-hosted GitHub Actions CI/CD on Ubuntu.",
+      "Architected unified booking, pricing, and payment workflows normalizing multiple third-party travel suppliers and inventory feeds behind one cohesive API.",
+      "Integrated secure payment gateways (CIB / Edahabia) and engineered pricing, commission, reconciliation, and automated wallet workflows.",
+      "Built real-time customer support with presence tracking, live messaging, and instant status updates.",
+      "Implemented fault-tolerant background processing with automated retries and recovery for asynchronous booking fulfillment.",
+      "Integrated an AI-powered vision pipeline for structured passport data extraction to streamline e-visa applications.",
+      "Engineered production security: token-based authentication, request signing, encrypted handoffs, rate limiting, and automated CI/CD deployment pipelines.",
     ],
   },
   {
@@ -191,14 +191,11 @@ export const FEATURED_PROJECTS = [
     stack: [
       "Node.js",
       "Express.js",
-      "PostgreSQL",
-      "Prisma",
-      "Redis",
-      "Socket.IO",
+      "REST APIs",
+      "Multi-Provider Aggregation",
+      "Payment Gateways",
       "Docker",
-      "Nginx",
-      "PM2",
-      "GitHub Actions",
+      "CI/CD",
     ],
     links: [],
     diagram: "fennec",
@@ -216,15 +213,15 @@ export const FEATURED_PROJECTS = [
         ],
       },
       {
-        heading: "System architecture",
+        heading: "Platform & integration architecture",
         paragraphs: [
-          "A layered Express.js service — routes, controllers, middleware, jobs, and queues — documented with Swagger and monitored with Sentry:",
+          "A service-oriented integration architecture engineered to seamlessly aggregate multiple external travel suppliers and deliver real-time booking capabilities:",
         ],
         bullets: [
-          "PostgreSQL via Prisma with a ~50-model relational schema covering bookings, payments, wallets, commissions, users, and support.",
-          "Redis for caching and Pub/Sub, plus Bull queues for retries, delayed jobs, and crash/deployment recovery.",
-          "Socket.IO for real-time support chat and payment status updates, running under PM2 clustering.",
-          "Provider integration layer that normalizes external travel APIs behind one internal contract.",
+          "Provider Integration Layer: Normalizes disparate third-party travel APIs into standardized contracts for flights, hotels, transfers, eSIMs, e-visas, and ferries.",
+          "Unified Transaction Lifecycle: Coordinates multi-step booking, server-side price validation, and automated ticket/voucher fulfillment.",
+          "Payment Processing: Integrates local card payment gateways with automated reconciliation and wallet management.",
+          "Fault-Tolerant Operations: Implements background processing, automatic retries, and failure recovery for reliable booking completion.",
         ],
       },
       {
@@ -244,9 +241,9 @@ export const FEATURED_PROJECTS = [
         ],
       },
       {
-        heading: "Status and boundaries",
+        heading: "Confidentiality & NDA boundaries",
         paragraphs: [
-          "Live in production since 2025, serving +10k registered users (as reported on my CV). The code is company property and private — nothing on this page exposes customer data, credentials, or internal endpoints.",
+          "Live in production since 2025, serving +10k registered users. In strict compliance with non-disclosure agreements (NDA), all proprietary database schemas, internal endpoint specifications, infrastructure credentials, and commercial partner contracts are confidential and omitted from this public portfolio.",
         ],
       },
     ],

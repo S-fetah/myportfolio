@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import styles from "./DiagramStyles.module.css";
 
-/* Sanitized, high-level architecture of the Fennec Booking backend.
-   Drawn from the actual system — no internal endpoints, data, or secrets. */
+/* High-level service integration architecture for Fennec Booking.
+   Sanitized to comply with non-disclosure agreements (NDA):
+   focuses on multi-vertical service aggregation, not proprietary backend internals. */
 
 function DiagramBox({ x, y, w, h, lines, variant }) {
   const cx = x + w / 2;
@@ -62,21 +63,18 @@ Arrow.propTypes = {
 function FennecArchitecture() {
   return (
     <svg
-      viewBox="0 0 780 470"
+      viewBox="0 0 780 460"
       role="img"
       aria-labelledby="fennec-diagram-title fennec-diagram-desc"
       className={styles.svg}
     >
       <title id="fennec-diagram-title">
-        Fennec Booking platform architecture
+        Fennec Booking service integration architecture
       </title>
       <desc id="fennec-diagram-desc">
-        Web and mobile clients talk to a layered Express.js API, which sits on
-        PostgreSQL with Prisma, Redis with Bull queues, and Socket.IO for
-        real-time features, and integrates external travel providers, SATIM
-        payments, an AI vision passport OCR service, and SendGrid email.
-        Operated on an Ubuntu VPS with Docker, Nginx, PM2, GitHub Actions
-        CI/CD, and Sentry.
+        High-level functional architecture showing web and mobile clients connected
+        to a unified travel commerce engine integrating flights, hotels, transfers,
+        eSIMs, e-visas, ferries, and secure payments with instant fulfillment.
       </desc>
       <defs>
         <marker
@@ -95,102 +93,120 @@ function FennecArchitecture() {
       {/* Clients */}
       <DiagramBox
         x={90}
-        y={16}
-        w={240}
-        h={58}
-        lines={["Web app", "Next.js · customer portal"]}
+        y={20}
+        w={280}
+        h={56}
+        lines={["Web Application", "Customer portal & responsive booking flow"]}
       />
       <DiagramBox
-        x={450}
-        y={16}
-        w={240}
-        h={58}
-        lines={["Mobile app", "Expo · React Native"]}
+        x={410}
+        y={20}
+        w={280}
+        h={56}
+        lines={["Mobile Application", "Cross-platform mobile booking client"]}
       />
-      <Arrow x1={210} y1={74} x2={210} y2={116} />
-      <Arrow x1={570} y1={74} x2={570} y2={116} />
+      <Arrow x1={230} y1={76} x2={230} y2={108} />
+      <Arrow x1={550} y1={76} x2={550} y2={108} />
 
-      {/* API */}
+      {/* Unified Platform Engine */}
       <DiagramBox
         x={90}
-        y={118}
+        y={110}
         w={600}
-        h={64}
+        h={62}
         variant="accent"
         lines={[
-          "Fennec Booking API — Express.js",
-          "layered: routes → controllers → services · Swagger · Sentry",
+          "Unified Travel Platform & Integration Engine",
+          "Single API layer · Real-time search, availability & pricing validation",
         ]}
       />
 
-      {/* Core platform */}
-      <text x={90} y={212} className={styles.groupLabel}>
-        Core platform
+      {/* Integrated Verticals */}
+      <text x={90} y={198} className={styles.groupLabel}>
+        Integrated Travel Verticals &amp; Services
       </text>
-      <Arrow x1={240} y1={182} x2={240} y2={220} />
+
+      <Arrow x1={180} y1={172} x2={180} y2={208} />
+      <Arrow x1={390} y1={172} x2={390} y2={208} />
+      <Arrow x1={600} y1={172} x2={600} y2={208} />
+
+      {/* Vertical Grid Row 1 */}
       <DiagramBox
         x={90}
-        y={222}
-        w={300}
-        h={52}
-        lines={["PostgreSQL + Prisma", "~50-model relational schema"]}
+        y={212}
+        w={186}
+        h={54}
+        lines={["Flights", "Global inventory & ticketing"]}
       />
       <DiagramBox
-        x={90}
-        y={286}
-        w={300}
-        h={52}
-        lines={["Redis · Bull", "queues · retries · pub/sub"]}
+        x={296}
+        y={212}
+        w={188}
+        h={54}
+        lines={["Hotels", "Worldwide rates & availability"]}
       />
       <DiagramBox
-        x={90}
-        y={350}
-        w={300}
-        h={52}
-        lines={["Socket.IO", "realtime support · payment updates"]}
+        x={504}
+        y={212}
+        w={186}
+        h={54}
+        lines={["Transfers", "Airport & city ground transit"]}
       />
 
-      {/* External & AI services */}
-      <text x={450} y={212} className={styles.groupLabel}>
-        External &amp; AI services
-      </text>
-      <Arrow x1={600} y1={182} x2={600} y2={220} />
-      <DiagramBox
-        x={450}
-        y={222}
-        w={300}
-        h={52}
-        variant="muted"
-        lines={["Travel providers", "flights · hotels · transfers · ferries …"]}
-      />
-      <DiagramBox
-        x={450}
-        y={286}
-        w={300}
-        h={52}
-        variant="muted"
-        lines={["SATIM payments", "CIB / Edahabia · reconciliation"]}
-      />
-      <DiagramBox
-        x={450}
-        y={350}
-        w={300}
-        h={52}
-        variant="muted"
-        lines={["AI vision OCR · SendGrid", "passport data · email · vouchers"]}
-      />
-
-      {/* Ops strip */}
+      {/* Vertical Grid Row 2 */}
       <DiagramBox
         x={90}
-        y={414}
-        w={600}
-        h={44}
+        y={278}
+        w={186}
+        h={54}
+        lines={["eSIMs", "Instant digital data packages"]}
+      />
+      <DiagramBox
+        x={296}
+        y={278}
+        w={188}
+        h={54}
+        lines={["E-Visas", "Automated application pipeline"]}
+      />
+      <DiagramBox
+        x={504}
+        y={278}
+        w={186}
+        h={54}
+        lines={["Packages & Ferries", "Vacation bundles & sea routes"]}
+      />
+
+      {/* Bottom Fulfillment & Payments */}
+      <Arrow x1={235} y1={332} x2={235} y2={350} />
+      <Arrow x1={545} y1={332} x2={545} y2={350} />
+
+      <DiagramBox
+        x={90}
+        y={352}
+        w={290}
+        h={52}
         variant="muted"
         lines={[
-          "Ops — Ubuntu VPS · Docker · Nginx · PM2 · GitHub Actions CI/CD · Sentry",
+          "Secure Payment Processing",
+          "Local payment gateways & automated reconciliation",
         ]}
       />
+      <DiagramBox
+        x={400}
+        y={352}
+        w={290}
+        h={52}
+        variant="muted"
+        lines={[
+          "Instant Fulfillment",
+          "Digital vouchers, ticketing & notification pipeline",
+        ]}
+      />
+
+      {/* Caption */}
+      <text x={390} y={434} textAnchor="middle" className={styles.caption}>
+        Figure: Multi-vertical travel service integration architecture (sanitized per NDA).
+      </text>
     </svg>
   );
 }
