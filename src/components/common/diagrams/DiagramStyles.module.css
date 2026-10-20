@@ -1,5 +1,17 @@
 /* Shared styles for hand-drawn technical diagrams (inline SVG, theme-aware). */
 
+.svg {
+  display: block;
+  width: 100%;
+  min-width: 600px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  text-rendering: geometricPrecision;
+  shape-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
 .box {
   fill: var(--surface);
   stroke: var(--border);
@@ -9,7 +21,7 @@
 .boxAccent {
   fill: var(--accent-soft);
   stroke: var(--accent);
-  stroke-width: 1;
+  stroke-width: 1.25;
 }
 
 .boxMuted {
@@ -24,19 +36,21 @@
   font-size: 13px;
   font-weight: 600;
   fill: var(--text);
+  letter-spacing: -0.01em;
 }
 
 .boxSub {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
   fill: var(--text-muted);
 }
 
 .groupLabel {
   font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 500;
-  fill: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  fill: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -58,16 +72,8 @@
 }
 
 .caption {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-family: var(--font-sans);
+  font-size: 12px;
   fill: var(--text-muted);
+  opacity: 0.85;
 }
-
-.svg {
-  display: block;
-  width: 100%;
-  min-width: 620px; /* keep labels legible; container scrolls horizontally on small screens */
-  height: auto;
-  aspect-ratio: 780 / 460;
-}
-

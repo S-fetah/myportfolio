@@ -32,8 +32,22 @@
 .diagramArea {
   padding: var(--space-4) var(--space-4) var(--space-2);
   border-bottom: 1px solid var(--border);
-  background-color: var(--surface);
+  background-color: var(--surface-2);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.diagramArea::-webkit-scrollbar {
+  height: 5px;
+}
+
+.diagramArea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.diagramArea::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: var(--radius-pill);
 }
 
 .noImage {

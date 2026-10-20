@@ -64,17 +64,17 @@ function CaseStudyModal({ project, diagram, onClose }) {
         className={styles.dialog}
       >
         <header className={styles.header}>
-          <div>
+          <div className={styles.headerInfo}>
             <p className={styles.kicker}>{project.category}</p>
             <h3 id="case-study-title" className={styles.title}>
               {project.title}
             </h3>
-            <p className={styles.meta}>
+            <div className={styles.meta}>
               <span className={styles.status} data-kind={project.statusKind}>
                 {project.status}
               </span>
               <span className={styles.role}>{project.role}</span>
-            </p>
+            </div>
           </div>
           <button
             ref={closeRef}
@@ -90,10 +90,7 @@ function CaseStudyModal({ project, diagram, onClose }) {
         <div className={styles.content}>
           {diagram && (
             <figure className={styles.diagram}>
-              {diagram}
-              <figcaption className={styles.diagramCaption}>
-                High-level architecture, drawn from the implemented system.
-              </figcaption>
+              <div className={styles.diagramScroll}>{diagram}</div>
             </figure>
           )}
 
@@ -121,7 +118,7 @@ function CaseStudyModal({ project, diagram, onClose }) {
 
           {project.stack && (
             <section className={styles.section}>
-              <h4 className={styles.sectionHeading}>Stack</h4>
+              <h4 className={styles.sectionHeading}>Technologies &amp; Architecture</h4>
               <ul className={styles.tags} aria-label={`Technologies for ${project.title}`}>
                 {project.stack.map((tag) => (
                   <li key={tag} className={styles.tag}>

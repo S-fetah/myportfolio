@@ -63,7 +63,7 @@ Arrow.propTypes = {
 function FennecArchitecture() {
   return (
     <svg
-      viewBox="0 0 780 460"
+      viewBox="0 0 780 445"
       role="img"
       aria-labelledby="fennec-diagram-title fennec-diagram-desc"
       className={styles.svg}
@@ -96,14 +96,14 @@ function FennecArchitecture() {
         y={20}
         w={280}
         h={56}
-        lines={["Web Application", "Customer portal & responsive booking flow"]}
+        lines={["Web Application", "Customer portal & booking"]}
       />
       <DiagramBox
         x={410}
         y={20}
         w={280}
         h={56}
-        lines={["Mobile Application", "Cross-platform mobile booking client"]}
+        lines={["Mobile Application", "iOS & Android clients"]}
       />
       <Arrow x1={230} y1={76} x2={230} y2={108} />
       <Arrow x1={550} y1={76} x2={550} y2={108} />
@@ -117,7 +117,7 @@ function FennecArchitecture() {
         variant="accent"
         lines={[
           "Unified Travel Platform & Integration Engine",
-          "Single API layer · Real-time search, availability & pricing validation",
+          "Single API layer · Real-time search & pricing validation",
         ]}
       />
 
@@ -136,21 +136,21 @@ function FennecArchitecture() {
         y={212}
         w={186}
         h={54}
-        lines={["Flights", "Global inventory & ticketing"]}
+        lines={["Flights", "Airline inventory"]}
       />
       <DiagramBox
         x={296}
         y={212}
         w={188}
         h={54}
-        lines={["Hotels", "Worldwide rates & availability"]}
+        lines={["Hotels", "Worldwide stays"]}
       />
       <DiagramBox
         x={504}
         y={212}
         w={186}
         h={54}
-        lines={["Transfers", "Airport & city ground transit"]}
+        lines={["Transfers", "Airport & city rides"]}
       />
 
       {/* Vertical Grid Row 2 */}
@@ -159,21 +159,21 @@ function FennecArchitecture() {
         y={278}
         w={186}
         h={54}
-        lines={["eSIMs", "Instant digital data packages"]}
+        lines={["eSIMs", "Global data packs"]}
       />
       <DiagramBox
         x={296}
         y={278}
         w={188}
         h={54}
-        lines={["E-Visas", "Automated application pipeline"]}
+        lines={["E-Visas", "Digital applications"]}
       />
       <DiagramBox
         x={504}
         y={278}
         w={186}
         h={54}
-        lines={["Packages & Ferries", "Vacation bundles & sea routes"]}
+        lines={["Ferries & Packages", "Maritime & bundles"]}
       />
 
       {/* Bottom Fulfillment & Payments */}
@@ -187,8 +187,8 @@ function FennecArchitecture() {
         h={52}
         variant="muted"
         lines={[
-          "Secure Payment Processing",
-          "Local payment gateways & automated reconciliation",
+          "Secure Payments",
+          "Gateways & reconciliation",
         ]}
       />
       <DiagramBox
@@ -199,12 +199,12 @@ function FennecArchitecture() {
         variant="muted"
         lines={[
           "Instant Fulfillment",
-          "Digital vouchers, ticketing & notification pipeline",
+          "Vouchers & notifications",
         ]}
       />
 
       {/* Caption */}
-      <text x={390} y={434} textAnchor="middle" className={styles.caption}>
+      <text x={390} y={430} textAnchor="middle" className={styles.caption}>
         Figure: Multi-vertical travel service integration architecture (sanitized per NDA).
       </text>
     </svg>

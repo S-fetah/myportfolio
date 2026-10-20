@@ -61,7 +61,7 @@ Arrow.propTypes = {
 function SahaMindSystem() {
   return (
     <svg
-      viewBox="0 0 780 460"
+      viewBox="0 0 780 425"
       role="img"
       aria-labelledby="saha-diagram-title saha-diagram-desc"
       className={styles.svg}
@@ -95,8 +95,8 @@ function SahaMindSystem() {
         h={96}
         lines={[
           "Patient Mobile App",
-          "Bare React Native · TypeScript",
-          "Mood tracking · Quizzes · Chat",
+          "React Native · Mobile",
+          "Mood tracker & AI chat",
         ]}
       />
 
@@ -108,8 +108,8 @@ function SahaMindSystem() {
         h={96}
         lines={[
           "Clinician Dashboard",
-          "Next.js · TypeScript · ShadCN",
-          "Patient analytics · Report review",
+          "Next.js · Web Portal",
+          "Analytics & report review",
         ]}
       />
 
@@ -121,8 +121,8 @@ function SahaMindSystem() {
         h={52}
         variant="muted"
         lines={[
-          "1. Formatting Agent (T5-Base)",
-          "Query normalization & safety (<0.2s)",
+          "1. Formatting Agent (T5)",
+          "Input cleaning & safety (<0.2s)",
         ]}
       />
       <DiagramBox
@@ -133,8 +133,8 @@ function SahaMindSystem() {
         variant="accent"
         lines={[
           "2. Therapeutic Agent 'Jarvis'",
-          "LLaMA 3.2 Instruct + LoRA (<2s)",
-          "RAG: FAISS + MiniLM Embeddings",
+          "LLaMA 3.2 + LoRA (<2s)",
+          "RAG: FAISS + MiniLM",
         ]}
       />
       <DiagramBox
@@ -144,8 +144,8 @@ function SahaMindSystem() {
         h={54}
         variant="accent"
         lines={[
-          "3. Sentiment Analysis (DistilBERT)",
-          "Emotional valence & marker detection (<3s)",
+          "3. Sentiment Agent (DistilBERT)",
+          "Emotional tone detection (<3s)",
         ]}
       />
       <DiagramBox
@@ -155,15 +155,15 @@ function SahaMindSystem() {
         h={58}
         variant="muted"
         lines={[
-          "4. Medical Report Agent (Mistral 7B)",
-          "Quantized 7B · Clinical report synthesis (<12s)",
+          "4. Report Agent (Mistral 7B)",
+          "Clinical report synthesis (<12s)",
         ]}
       />
 
       {/* Pipeline Inter-Agent Flow */}
-      <Arrow x1={224} y1={50} x2={246} y2={50} />
+      <Arrow x1={224} y1={46} x2={246} y2={46} />
       <Arrow x1={390} y1={72} x2={390} y2={80} />
-      <Arrow x1={246} y1={120} x2={228} y2={100} />
+      <Arrow x1={250} y1={105} x2={228} y2={105} />
       <Arrow x1={390} y1={154} x2={390} y2={162} />
       <Arrow x1={390} y1={220} x2={390} y2={228} />
       <Arrow x1={530} y1={261} x2={620} y2={124} />
@@ -176,15 +176,16 @@ function SahaMindSystem() {
         x={24}
         y={314}
         w={732}
-        h={52}
+        h={54}
         lines={[
-          "Supabase (Managed PostgreSQL · Real-time sync · Auth / RBAC) + Python FastAPI",
+          "Backend Infrastructure & Storage",
+          "Supabase (PostgreSQL & Real-time Sync) + Python FastAPI",
         ]}
       />
 
       {/* Caption */}
-      <text x={390} y={400} textAnchor="middle" className={styles.caption}>
-        Figure: 4-agent collaborative architecture and RAG pipeline (Master&apos;s dissertation, Yahia Farès University).
+      <text x={390} y={398} textAnchor="middle" className={styles.caption}>
+        Figure: 4-agent collaborative architecture &amp; RAG pipeline (Master&apos;s dissertation, Yahia Farès University).
       </text>
     </svg>
   );
