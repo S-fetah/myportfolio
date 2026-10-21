@@ -17,10 +17,17 @@ function Hero() {
     <section id="home" className={styles.hero} aria-labelledby="hero-heading">
       <div className={styles.inner}>
         <div className={styles.copy}>
-          <p className={styles.kicker}>{PROFILE.location}</p>
-          <h1 id="hero-heading">
-            {PROFILE.firstName} <br />
-            {PROFILE.lastName}
+          <div className={styles.kickerRow}>
+            <span className={styles.statusBadge}>
+              <span className={styles.statusDot} />
+              Available for opportunities
+            </span>
+            <span className={styles.kickerDot}>•</span>
+            <p className={styles.kicker}>{PROFILE.location}</p>
+          </div>
+          <h1 id="hero-heading" className={styles.heading}>
+            <span className={styles.headingLine}>{PROFILE.firstName}</span>
+            <span className={styles.headingLine}>{PROFILE.lastName}</span>
           </h1>
           <p className={styles.role}>{PROFILE.title}</p>
           <p className={styles.description}>{PROFILE.valueProp}</p>

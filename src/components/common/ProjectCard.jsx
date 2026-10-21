@@ -78,7 +78,10 @@ function ProjectCard({
                 rel="noopener noreferrer"
                 className={styles.cardLink}
               >
-                {link.label} <span aria-hidden="true">↗</span>
+                {link.label}{" "}
+                <span aria-hidden="true" className={styles.linkArrow}>
+                  ↗
+                </span>
               </a>
             ))}
           </div>

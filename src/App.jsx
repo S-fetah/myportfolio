@@ -1,6 +1,7 @@
 import "./App.css";
 import Nav from "./components/Nav/Nav";
 import Hero from "./components/Hero/Hero";
+import TechMarquee from "./components/common/TechMarquee";
 import About from "./components/About/About";
 import Experience from "./components/Experience/Experience";
 import Skills from "./components/skills/Skills";
@@ -17,6 +18,7 @@ function App() {
       <Nav />
       <main id="main">
         <Hero />
+        <TechMarquee />
         <About />
         <Experience />
         <Skills />

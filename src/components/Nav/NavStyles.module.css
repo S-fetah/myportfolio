@@ -84,9 +84,9 @@
   color: var(--text-muted);
   font-size: var(--text-sm);
   font-weight: 500;
-  padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-md);
-  transition: color var(--transition-fast), background-color var(--transition-fast);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
 }
 
 .links a:hover {
@@ -97,6 +97,7 @@
 .linkActive {
   color: var(--accent) !important;
   background-color: var(--accent-soft);
+  font-weight: 600;
 }
 
 .actions {
@@ -115,12 +116,12 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: border-color var(--transition-fast), transform var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .themeToggle:hover {
   border-color: var(--accent);
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(12deg);
 }
 
 .themeToggle img {
@@ -138,12 +139,13 @@
   border-radius: var(--radius-pill);
   padding: var(--space-2) var(--space-4);
   white-space: nowrap;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .resumeButton:hover {
   background-color: var(--accent-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 14px var(--accent-soft);
 }
 
 @media (min-width: 860px) {
@@ -155,12 +157,18 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: var(--space-1);
+    gap: 2px;
     position: static;
-    background: none;
-    border: 0;
-    padding: 0;
-    box-shadow: none;
+    background-color: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    padding: 3px 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .linkActive {
+    background-color: var(--surface);
+    box-shadow: var(--shadow-sm);
   }
 
   .resumeButton {

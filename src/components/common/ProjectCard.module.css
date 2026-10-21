@@ -4,16 +4,16 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: border-color var(--transition-base), box-shadow var(--transition-base),
-    transform var(--transition-base);
+  transition: border-color var(--transition-base), box-shadow 450ms var(--ease-out-spring),
+    transform 450ms var(--ease-out-spring);
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--accent);
+  transform: translateY(-6px);
   border-color: var(--accent);
 }
 
@@ -27,6 +27,11 @@
   object-fit: cover;
   display: block;
   border-bottom: 1px solid var(--border);
+  transition: transform 700ms var(--ease-out-spring);
+}
+
+.card:hover .image {
+  transform: scale(1.06);
 }
 
 .diagramArea {
@@ -158,12 +163,18 @@
   border-radius: var(--radius-pill);
   padding: var(--space-2) var(--space-4);
   cursor: pointer;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .caseButton:hover {
   background-color: var(--accent);
   color: var(--accent-contrast);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px var(--accent-soft);
+}
+
+.caseButton:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .cardLink {
@@ -172,6 +183,23 @@
   font-weight: 500;
   color: var(--accent);
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  transition: color var(--transition-fast);
+}
+
+.cardLink:hover {
+  text-decoration: underline;
+}
+
+.linkArrow {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.cardLink:hover .linkArrow {
+  transform: translate(3px, -3px);
 }
 
 .cardLink:hover {

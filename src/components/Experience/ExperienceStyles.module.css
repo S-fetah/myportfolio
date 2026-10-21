@@ -14,12 +14,12 @@
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  transition: transform 400ms var(--ease-out-spring), box-shadow 400ms var(--ease-out-spring), border-color 200ms ease;
 }
 
 .card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--accent);
+  transform: translateY(-4px);
 }
 
 .cardHeader h3 {
@@ -65,6 +65,13 @@
   border-radius: var(--radius-md);
   padding: var(--space-5);
   box-shadow: var(--shadow-sm);
+  transition: transform 400ms var(--ease-out-spring), box-shadow 400ms var(--ease-out-spring), border-color 200ms ease;
+}
+
+.eduCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.5);
 }
 
 .eduSchool {

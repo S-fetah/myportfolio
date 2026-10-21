@@ -109,11 +109,12 @@ a {
   margin: 0 0 var(--space-8);
 }
 
-/* Scroll-reveal (driven by Reveal.jsx IntersectionObserver) */
+/* Scroll-reveal (driven by Reveal.jsx IntersectionObserver — Showcasy cinematic curve) */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 600ms ease, transform 600ms ease;
+  transform: translateY(28px);
+  transition: opacity 800ms var(--ease-framer), transform 800ms var(--ease-framer);
+  will-change: opacity, transform;
 }
 
 .reveal.isVisible {
