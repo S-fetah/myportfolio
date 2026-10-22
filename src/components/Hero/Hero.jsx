@@ -6,7 +6,7 @@ import githubDark from "../../assets/github-dark.svg";
 import twitterLight from "../../assets/twitter-light.svg";
 import twitterDark from "../../assets/twitter-dark.svg";
 import me from "../../assets/profile.jpg";
-import resumePdf from "../../assets/safiddine_abdelfetah_resume.pdf";
+import resumePdf from "../../assets/Safiddine-Abdelfetah.pdf";
 import { PROFILE, SOCIALS } from "../../data/content";
 import { useThemeContext } from "../common/ThemeContext";
 
@@ -41,7 +41,7 @@ function Hero() {
             </a>
             <a
               href={resumePdf}
-              download="safiddine_abdelfetah_resume.pdf"
+              download="Safiddine-Abdelfetah.pdf"
               className={styles.resumeButton}
             >
               <span className={styles.downloadIcon} aria-hidden="true">
