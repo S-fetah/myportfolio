@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./NavStyles.module.css";
 import sun from "../../assets/sun.svg";
 import moon from "../../assets/moon.svg";
-import CV from "../../assets/Fettah_Safi_CV_ATS_v3.pdf";
+import resumePdf from "../../assets/safiddine_abdelfetah_resume.pdf";
 import { NAV_LINKS } from "../../data/content";
 import { useThemeContext } from "../common/ThemeContext";
 
@@ -89,8 +89,8 @@ function Nav() {
             <img src={themeIcon} alt="" aria-hidden="true" />
           </button>
           <a
-            href={CV}
-            download="Fettah_Safi_CV.pdf"
+            href={resumePdf}
+            download="safiddine_abdelfetah_resume.pdf"
             className={styles.resumeButton}
           >
             Download CV

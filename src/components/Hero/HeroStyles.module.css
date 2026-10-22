@@ -156,6 +156,43 @@
   transform: translateY(0) scale(0.98);
 }
 
+.resumeButton {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--text);
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: var(--space-3) var(--space-6);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: all var(--transition-fast);
+}
+
+.resumeButton:hover {
+  background-color: var(--surface);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-md), 0 0 16px var(--accent-soft);
+}
+
+.resumeButton:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.downloadIcon {
+  font-size: 1.1em;
+  line-height: 1;
+  transition: transform var(--transition-fast);
+}
+
+.resumeButton:hover .downloadIcon {
+  transform: translateY(2px);
+}
+
 .socials {
   display: flex;
   gap: var(--space-4);
